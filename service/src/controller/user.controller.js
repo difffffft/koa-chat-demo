@@ -1,14 +1,14 @@
 const Router = require('koa-router');
 const Multer = require('@koa/multer')
 const R = require('@/common/R');
-const CommonMw = require('@/mw/common');
-const ValidatorMw = require('@/mw/validator');
-const CheckMw = require('@/mw/check');
+const CommonMw = require('@/mw/common.mw');
+const ValidatorMw = require('@/mw/validator.mw');
+const CheckMw = require('@/mw/check.mw');
 const Upload = Multer()
-const userService = require('@/service/UserService');
+const userService = require('@/service/user.service');
 const path = require("path");
 const fs = require("fs");
-const FileUtil = require("@/util/FileUtil")
+const FileUtil = require("@/util/file.util")
 const {v4: uuidv4} = require("uuid")
 
 

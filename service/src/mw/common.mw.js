@@ -1,6 +1,6 @@
 const R = require('@/common/R');
 const CryptoJS = require('crypto-js');
-const AppConfig = require('@/config/AppConfig');
+const AppConfig = require('@/config/app.config');
 const Jwt = require('jsonwebtoken');
 
 class CommonMw {

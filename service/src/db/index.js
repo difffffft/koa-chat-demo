@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize')
-const MySqlConfig = require('@/config/MySqlConfig')
+const DBConfig = require('@/config/db.config')
 
 const mSequelize = new Sequelize(
-  MySqlConfig.DB_DATABASE,
-  MySqlConfig.DB_USERNAME,
-  MySqlConfig.DB_PASSWORD,
+  DBConfig.DB_DATABASE,
+  DBConfig.DB_USERNAME,
+  DBConfig.DB_PASSWORD,
   {
-    host: MySqlConfig.DB_HOST,
-    dialect: MySqlConfig.DB_TYPE,
+    host: DBConfig.DB_HOST,
+    dialect: DBConfig.DB_TYPE,
     pool: {
       max: 300,
       min: 0,

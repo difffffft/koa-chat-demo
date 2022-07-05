@@ -1,4 +1,4 @@
-const User = require('@/entity/User');
+const User = require('@/model/user.model');
 
 class UserService {
   async addUser(username, password) {

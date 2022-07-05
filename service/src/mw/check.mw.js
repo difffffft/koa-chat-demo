@@ -1,6 +1,6 @@
 const R = require('@/common/R');
-const userService = require('@/service/UserService');
-const AppConfig = require('@/config/AppConfig');
+const userService = require('@/service/user.service');
+const AppConfig = require('@/config/app.config');
 const Jwt = require('jsonwebtoken');
 
 /**
