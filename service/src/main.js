@@ -15,10 +15,15 @@ const CheckMw = require('@/mw/check.mw')
 const im = require('@/im')
 
 const app = Websockify(new Koa())
+const sokectUsers = []
 
 app.use(Cors())
 app.use(KoaBody())
 app.use(CommonMw.globalError)
+app.use(async (ctx, next) => {
+  ctx.sokectUsers = sokectUsers
+  await next()
+})
 app.use(CheckMw.checkApiSign)
 app.use(CheckMw.checkUserToken)
 app.use(Mount('/static', Static(Path.join(__dirname, '/static'))))
@@ -29,7 +34,7 @@ router.use(UserController.routes())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-app.ws.use(im)
+app.ws.use(im(sokectUsers))
 
 app.listen(AppConfig.APP_PORT, () => {
   console.log('server is running on http://localhost:' + AppConfig.APP_PORT)

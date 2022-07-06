@@ -2,7 +2,9 @@
 	<view class="content">
 		<view class="option">
 			<button @click="handleLogin">登录</button>
-			<button @click="handleRegi">注册</button>
+			<view style="width: 20px;">
+			</view>
+			<button @click="handleRegister">注册</button>
 		</view>
 	</view>
 </template>
@@ -15,38 +17,41 @@
 			}
 		},
 		onLoad() {
-
+			// const token = uni.getStorageSync('token');
+			// if (token) {
+			// 	uni.reLaunch({
+			// 		url: "/pages/home/home"
+			// 	})
+			// }
 		},
 		methods: {
-
+			handleLogin() {
+				uni.navigateTo({
+					url: "/pages/login/login"
+				})
+			},
+			handleRegister() {
+				uni.navigateTo({
+					url: "/pages/register/register"
+				})
+			}
 		}
 	}
 </script>
 
-<style>
+<style scoped lang="scss">
 	.content {
+		height: 100%;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-	}
+		justify-content: flex-end;
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		.option {
+			display: flex;
+			margin-bottom: 20px;
+		}
 	}
 </style>
